@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Couple ToDo</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#ec407a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="CoupleToDo">
+  <link rel="apple-touch-icon" href="icon.svg">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- セットアップ画面 -->
+  <div id="setup-screen" class="setup-screen">
+    <div class="setup-card">
+      <h1 class="setup-title">Couple ToDo</h1>
+      <p class="setup-subtitle">2人の共有ToDoリスト</p>
+      <form id="setup-form">
+        <div class="setup-field">
+          <label for="room-id">ルームID</label>
+          <input type="text" id="room-id" placeholder="2人で同じIDを入力" autocomplete="off" required>
+        </div>
+        <div class="setup-field">
+          <label for="my-name">あなたの名前</label>
+          <input type="text" id="my-name" placeholder="名前を入力" autocomplete="off" required>
+        </div>
+        <div class="setup-field">
+          <label for="partner-name">パートナーの名前</label>
+          <input type="text" id="partner-name" placeholder="パートナーの名前を入力" autocomplete="off" required>
+        </div>
+        <button type="submit" class="setup-btn">はじめる</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- メインアプリ -->
+  <div id="app" class="container" style="display:none;">
+    <div class="app-header">
+      <h1 id="app-title">Couple ToDo</h1>
+      <button id="logout-btn" class="logout-btn" title="設定をリセット">&#x2715;</button>
+    </div>
+    <p id="room-info" class="room-info"></p>
+
+    <form id="todo-form">
+      <div class="form-row">
+        <input type="text" id="todo-input" placeholder="タスクを入力..." autocomplete="off">
+        <button type="submit">追加</button>
+      </div>
+      <div class="form-options">
+        <select id="assignee-select">
+          <option value="">担当者</option>
+        </select>
+        <select id="category-select">
+          <option value="shopping">買い物</option>
+          <option value="housework">家事</option>
+          <option value="schedule">予定</option>
+          <option value="other">その他</option>
+        </select>
+      </div>
+    </form>
+
+    <div class="filters">
+      <div class="filter-group">
+        <button class="filter-btn active" data-filter="all">すべて</button>
+        <button class="filter-btn" data-filter="active">未完了</button>
+        <button class="filter-btn" data-filter="completed">完了</button>
+      </div>
+      <div class="filter-group">
+        <button class="filter-btn active" data-assignee="all">全員</button>
+        <button class="filter-btn" data-assignee="partner1" id="filter-p1"></button>
+        <button class="filter-btn" data-assignee="partner2" id="filter-p2"></button>
+      </div>
+      <div class="filter-group">
+        <button class="filter-btn active" data-category="all">全カテゴリ</button>
+        <button class="filter-btn" data-category="shopping">買い物</button>
+        <button class="filter-btn" data-category="housework">家事</button>
+        <button class="filter-btn" data-category="schedule">予定</button>
+        <button class="filter-btn" data-category="other">その他</button>
+      </div>
+    </div>
+
+    <ul id="todo-list"></ul>
+    <div id="todo-count" class="todo-count"></div>
+    <div id="sync-status" class="sync-status"></div>
+  </div>
+
+  <!-- Firebase SDK (CDN) -->
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+  <script src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("./sw.js");
+    }
+  </script>
+</body>
+</html>

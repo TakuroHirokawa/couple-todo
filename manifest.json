@@ -1,0 +1,18 @@
+{
+  "name": "Couple ToDo",
+  "short_name": "CoupleToDo",
+  "description": "2人の共有ToDoリスト",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fce4ec",
+  "theme_color": "#ec407a",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
