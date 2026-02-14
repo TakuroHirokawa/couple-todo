@@ -3,13 +3,13 @@
 // ============ Firebase設定 ============
 // Firebase Consoleから取得した設定をここに貼り付けてください
 const firebaseConfig = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
-  projectId: "YOUR_PROJECT",
-  storageBucket: "YOUR_PROJECT.appspot.com",
-  messagingSenderId: "000000000000",
-  appId: "YOUR_APP_ID",
+  apiKey: "AIzaSyBUBPKp4scoXw-n4jZ5o8ieiCjkDjE0PyE",
+  authDomain: "couple-todo-yuntaku.firebaseapp.com",
+  databaseURL: "https://couple-todo-yuntaku-default-rtdb.firebaseio.com",
+  projectId: "couple-todo-yuntaku",
+  storageBucket: "couple-todo-yuntaku.firebasestorage.app",
+  messagingSenderId: "298100478076",
+  appId: "1:298100478076:web:b6a5a624992fba8560b9f9",
 };
 
 // ============ Firebase初期化 ============
